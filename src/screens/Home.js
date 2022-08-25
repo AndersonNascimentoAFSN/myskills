@@ -43,13 +43,6 @@ export function Home() {
 
       <View style={styles.containerSkills}>
         <Text style={[styles.title, styles.spacingSkills]}>My Skills</Text>
-
-        {/* {skills.map(({id, name}) => (
-          <TouchableOpacity style={styles.buttonSkill} key={id}>
-            <Text style={[styles.title, styles.textSkill]}>{name}</Text>
-          </TouchableOpacity>
-        ))} */}
-
         <SkillsCards skills={skills} />
       </View>
     </SafeAreaView>

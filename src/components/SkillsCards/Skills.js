@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 
-export default function Skills({skills}) {
+export default function SkillsCards({skills}) {
   return (
     <FlatList
       data={skills}

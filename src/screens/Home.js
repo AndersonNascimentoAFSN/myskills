@@ -8,11 +8,9 @@ import {
   TextInput,
   StyleSheet,
   SafeAreaView,
-  TouchableOpacity,
-  FlatList,
 } from 'react-native';
 import {Button} from '../components/Button/Button';
-import Skills from '../components/Skills/Skills';
+import SkillsCards from '../components/SkillsCards/Skills';
 
 export function Home() {
   const [skill, setSkill] = useState('');
@@ -52,7 +50,7 @@ export function Home() {
           </TouchableOpacity>
         ))} */}
 
-        <Skills skills={skills} />
+        <SkillsCards skills={skills} />
       </View>
     </SafeAreaView>
   );

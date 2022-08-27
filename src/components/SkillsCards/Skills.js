@@ -19,11 +19,11 @@ export default function SkillsCards({skills}) {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.listEmptyText}>
-            Não há skills? Adicione skills a sua lista de habilidades.
+            Your list is empty. Add skills to your list.
           </Text>
         )}
         renderItem={({item}) => (
-          <TouchableOpacity style={styles.buttonSkill} key={item.id}>
+          <TouchableOpacity style={styles.buttonSkill}>
             <Text style={[styles.title, styles.textSkill]}>{item.name}</Text>
           </TouchableOpacity>
         )}

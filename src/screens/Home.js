@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import uuid from 'react-native-uuid';
 
 import {
@@ -15,6 +15,7 @@ import SkillsCards from '../components/SkillsCards/Skills';
 export function Home() {
   const [skill, setSkill] = useState('');
   const [skills, setSkills] = useState([]);
+  const [greeting, setGreeting] = useState('');
 
   function handleAddSkill() {
     const isExistingSkill = skills.find(({name}) => name === skill.name);
@@ -25,9 +26,26 @@ export function Home() {
     setSkill('');
   }
 
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+
+    switch (true) {
+      case currentHour < 12:
+        return setGreeting('Good Morning');
+      case currentHour >= 12 && currentHour < 18:
+        return setGreeting('Good Afternoon');
+      case currentHour > 18:
+        return setGreeting('Good Night');
+      default:
+        '';
+    }
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Welcome, Anderson Nascimento</Text>
+
+      <Text style={styles.greeting}>{greeting}</Text>
 
       <View style={styles.spacing}>
         <TextInput
@@ -57,6 +75,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   title: {color: '#ffff', fontSize: 18, fontWeight: 'bold'},
+  greeting: {color: '#ffff'},
   input: {
     backgroundColor: '#1f1e25',
     color: '#ffff',
